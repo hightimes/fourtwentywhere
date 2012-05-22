@@ -19,10 +19,9 @@ s=checkTime(s);
 if (h > 12) {
       h -= 12;
 		}
-		else if (hours == 0) {
-      hours = 12;
+		else if (h == 0) {
+      h = 12;
    }
-
 document.getElementById('time').innerHTML=h+":"+m+":"+s;
 t=setTimeout('startTime()',500);
 }
