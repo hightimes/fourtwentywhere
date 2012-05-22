@@ -215,14 +215,62 @@ td { vertical-align: top; }
 
 
 /* ==|== primary styles =====================================================
-   Author:
+   Author: Boom.FACE
    ========================================================================== */
 
+	 body{
+		 background:#42453d;
+		 text-align:center;
+		 width:100%;
+	 }
+	 .weed-container {
+		 background: url('../img/background.png') 0 0 no-repeat;
+		 min-height:780px;
+		 width:1140px;
+		 margin-left:auto;
+		 margin-right:auto;
+		 text-align: center;
+	 }
+	 h1 {
+		 color:#bebebe;
+		 font-weight:normal;
+	 
+	 }
 
-
-
-
-
+	 header h1 {
+		 font-size:62px;
+	 }
+	 #your-time h1 {
+		 font-size:24px;
+	 }
+	 #weed-clock {
+		 background:#000;
+		 color:#2aff00;
+		 font-size:48px;
+		 padding:0px;
+		 width:250px;
+		 display: inline-block;
+	 }
+	 .time-to-puff-message {
+		 background:#bebebe;
+		 color:#000;
+		 -webkit-border-radius: 15px;
+		 -moz-border-radius: 15px;
+		 border-radius: 15px;
+		 -moz-box-shadow:    0px 10px 10px 6px #333;
+		   -webkit-box-shadow: 0px 10px 20px 0px #333;
+		   box-shadow:         0px 10px 20px 0px #333;
+			 font-size:34px;
+			 font-weight:bold;
+			 margin-top:140px;
+			 text-shadow: 2px 2px #ccc;
+	 }
+	 footer {
+		 margin-top:220px;
+		 font-size:11px;
+		 color:#bebebe;
+		 
+	 }
 
 
 
