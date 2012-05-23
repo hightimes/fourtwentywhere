@@ -251,7 +251,7 @@ td { vertical-align: top; }
 		 width:250px;
 		 display: inline-block;
 	 }
-	 .time-to-puff-message {
+	 #time-to-puff {
 		 background:#bebebe;
 		 color:#000;
 		 -webkit-border-radius: 15px;
