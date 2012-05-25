@@ -10,7 +10,6 @@
   <meta name="description" content="A world clock service which lets you know where in the world it is currently 4:20">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <script src="js/vendor/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
@@ -34,8 +33,39 @@
 		<span>The 420 world clock is a free service brought to you by face.boom</span>
 	</footer>
  </div>
+ <?php
+ include('ip2locationlite.class.php');
  
+ //Load the class
+ $ipLite = new ip2location_lite;
+ $ipLite->setKey('19325862acf98e3dc45706835d54cfe1681f5c3c1d77106fb2d4704fcc47636d');
  
+ //Get errors and locations
+ $locations = $ipLite->getCity($_SERVER['REMOTE_ADDR']);
+ $errors = $ipLite->getError();
+ 
+ //Getting the result
+ echo "<p>\n";
+ echo "<strong>First result</strong><br />\n";
+ if (!empty($locations) && is_array($locations)) {
+   foreach ($locations as $field => $val) {
+     echo $field . ' : ' . $val . "<br />\n";
+   }
+ }
+ echo "</p>\n";
+ 
+ //Show errors
+ echo "<p>\n";
+ echo "<strong>Dump of all errors</strong><br />\n";
+ if (!empty($errors) && is_array($errors)) {
+   foreach ($errors as $error) {
+     echo var_dump($error) . "<br /><br />\n";
+   }
+ } else {
+   echo "No errors" . "<br />\n";
+ }
+ echo "</p>\n";
+ ?>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
 

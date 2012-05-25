@@ -40,11 +40,7 @@
        time = [hour,":",minutes].join("");		 	
        return time;
 	}
-	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	var geocoder = new google.maps.Geocoder()
-	geocoder.geocode({location:latlng},function(result){
-	                    console.log(resul.address_components.long_name)
-	});
+
 	 
 	function message(date){
 		
@@ -54,9 +50,11 @@
 		msg = [],
 		sorry =  "Sorry, not time to puff",
 		msg1 =  "It's 4:20 in face",
+		msg2 = "BOOM 4:20! Light that bitch up!"
 		time = formatTime(date);
 		msg.push(time);
 		msg = (date.getMinutes() == 20) ? msg1 : sorry;
+		msg = (date.getHours() == 04 && date.getMinutes() == 20) ? msg2 : sorry;
 		// print(msg);
 		currtimeid.innerHTML = time;
 		puffid.innerHTML = msg;
