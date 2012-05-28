@@ -1,5 +1,5 @@
 /* Author:
-
+boom.face.done
 */
 
 
@@ -29,7 +29,7 @@
 
 	function timeCheck(){
 		message(new Date());
-		timeout = setTimeout(timeCheck,60000);
+		timeout = setTimeout(timeCheck,1000);
 		console.log("timeout = " + timeout);
 	}
 
@@ -37,7 +37,8 @@
        var 
        hour = hours[date.getHours()] ? hours[date.getHours()] : date.getHours(),
        minutes = (date.getMinutes().toString().length > 1)  ? date.getMinutes() : ("0" + date.getMinutes()),
-       time = [hour,":",minutes].join("");		 	
+			 seconds = (date.getSeconds() < 10) ? ("0" + date.getSeconds()) : date.getSeconds(),
+       time = [hour,":",minutes,":",seconds].join("");		 	
        return time;
 	}
 
@@ -50,12 +51,11 @@
 		msg = [],
 		sorry =  "Sorry, not time to puff",
 		msg1 =  "It's 4:20 in face",
-		msg2 = "BOOM 4:20! Light that bitch up!"
+		msg2 = "BOOM 4:20! Light that bitch up!",
 		time = formatTime(date);
 		msg.push(time);
-		msg = (date.getMinutes() == 20) ? msg1 : sorry;
-		msg = (date.getHours() == 04 && date.getMinutes() == 20) ? msg2 : sorry;
-		// print(msg);
+		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry;
+
 		currtimeid.innerHTML = time;
 		puffid.innerHTML = msg;
 	}

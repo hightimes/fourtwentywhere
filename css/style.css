@@ -241,18 +241,18 @@ td { vertical-align: top; }
 		 font-size:62px;
 	 }
 	 #your-time h1 {
-		 font-size:24px;
+		 font-size:28px;
 	 }
 	 #weed-clock {
 		 background:#000;
 		 color:#2aff00;
 		 font-size:48px;
 		 padding:0px;
-		 width:175px;
+		 width:275px;
 		 display: inline-block;
-		 font-family: 'Orbitron', sans-serif;
+		 font-family: "Lucidia Console";
 		 height: 56px;
-		 text-align: right;
+		 text-align: center;
 		 padding: 0 8px;
 	 }
 	 #time-to-puff {
