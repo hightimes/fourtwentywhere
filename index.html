@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   <script src="js/vendor/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
@@ -19,16 +20,40 @@
  	<header>
  		<h1>4:20 World Clock</h1>
  	</header>
-	<article>
-		<section id="your-time">
-			<h1>The current time is:</h1>
-			<div id="weed-clock">
-				<div id="current-time"></div>
+	
+
+	
+	<article class="row">
+		<div class="three columns" id="your-time">
+			<section>
+				<h1>The current time is:</h1>
+				<div class="weed-clock">
+					<div id="current-time"></div>
+				</div>
+			</section>
+			<section>
+				<h1>The current time in Amsterdam is:</h1>
+				<div class="weed-clock">
+					<div id="amd-current-time"></div>
+				</div>
+			</section>
+			
+		</div>
+		
+		
+		<section class="nine columns" id="awesome">
+			<div id="time-to-puff"></div>
+		
+			<div id="munchie-finder">
+				<form>
+					<label>Enter your city or zip code. find munchies nearby:</label>
+			    <input id="address" type="textbox" value="">
+			    <input type="button" value="Find Munchies!" onclick="initialize();codeAddress()">
+				</form>
+				<div id="map_canvas"></div>
 			</div>
 		</section>
-		<section id="awesome">
-			<div id="time-to-puff"></div>
-		</section>
+		
 	</article>
 	<footer>
 		<span>The 420 world clock is a free service brought to you by face.boom</span>
@@ -42,6 +67,7 @@
   <!-- scripts concatenated and minified via build script -->
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+	<script src="js/googlemap.js"></script>
   <!-- end scripts -->
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.

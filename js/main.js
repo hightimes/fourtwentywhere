@@ -39,23 +39,45 @@ boom.face.done
        minutes = (date.getMinutes().toString().length > 1)  ? date.getMinutes() : ("0" + date.getMinutes()),
 			 seconds = (date.getSeconds() < 10) ? ("0" + date.getSeconds()) : date.getSeconds(),
        time = [hour,":",minutes,":",seconds].join("");		 	
+
        return time;
 	}
 
-	 
+	function formatAmsterTime(){
+		var time = new Date(),
+		gmt = time.getTime() + (time.getTimezoneOffset() * 120000),
+		gmtTime = new Date(gmt),
+		hour = gmtTime.getHours(),
+		minutes = gmtTime.getMinutes(),
+		seconds = gmtTime.getSeconds(),
+		hour = hours[gmtTime.getHours()] ? hours[gmtTime.getHours()] : gmtTime.getHours()
+		if(minutes < 10){
+		minutes = "0" + minutes
+		}
+		if(seconds < 10){
+		seconds = "0" + seconds
+		} 
+		time2 = [hour,":",minutes,":",seconds].join("");	
+	
+
+		return time2;
+	}
 	function message(date){
 		
 		var
 		puffid = document.getElementById('time-to-puff'),
 		currtimeid = document.getElementById('current-time'),
+		amdtimeid = document.getElementById('amd-current-time'),
 		msg = [],
 		sorry =  "Sorry, not time to puff",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
 		time = formatTime(date);
+		time2 = formatAmsterTime();
 		msg.push(time);
 		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry;
 		currtimeid.innerHTML = time;
+		amdtimeid.innerHTML = time2;
 		puffid.innerHTML = msg;
 	}
 
