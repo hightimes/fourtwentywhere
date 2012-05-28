@@ -55,7 +55,6 @@ boom.face.done
 		time = formatTime(date);
 		msg.push(time);
 		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry;
-
 		currtimeid.innerHTML = time;
 		puffid.innerHTML = msg;
 	}
