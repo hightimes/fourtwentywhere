@@ -45,7 +45,10 @@ boom.face.done
 
 	function formatAmsterTime(){
 		var time = new Date(),
-		gmt = time.getTime() + (time.getTimezoneOffset() * 120000),
+		// ===========================================================================
+		// = GMT +1 currently -- the + 3600000 ms at the end is for daylight savings =
+		// ===========================================================================
+		gmt = time.getTime() + (time.getTimezoneOffset() * 60000) + 3600000,
 		gmtTime = new Date(gmt),
 		hour = gmtTime.getHours(),
 		minutes = gmtTime.getMinutes(),
@@ -57,9 +60,7 @@ boom.face.done
 		if(seconds < 10){
 		seconds = "0" + seconds
 		} 
-		time2 = [hour,":",minutes,":",seconds].join("");	
-	
-
+		time2 = [hour,":",minutes,":",seconds].join("");		
 		return time2;
 	}
 	function message(date){
