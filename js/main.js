@@ -75,13 +75,14 @@ boom.face.done
 		currtimeid = document.getElementById('current-time'),
 		amdtimeid = document.getElementById('amd-current-time'),
 		msg = [],
-		sorry =  "Sorry, not time to puff",
+		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
+		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20.";
 		time = formatTime(date);
 		time2 = formatAmsterTime();
 		msg.push(time);
-		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry;
+		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
 		currtimeid.innerHTML = time;
 		amdtimeid.innerHTML = time2;
 		puffid.innerHTML = msg;
