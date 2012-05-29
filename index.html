@@ -17,8 +17,9 @@
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]--> 
  <div class="weed-container">
- 	<header>
+ 	<header id="masthead">
  		<h1>4:20 World Clock</h1>
+		<p>it's always 4:20 somewhere</p>
  	</header>
 	
 
@@ -46,11 +47,11 @@
 		
 			<div id="munchie-finder">
 				<form>
-					<legend>Donut search:</legend>
+					<legend id="search-title"></legend>
 					
 					<label>Zip code or city</label>
 			    <input id="address" type="textbox" value="">
-			    <input type="button" value="Find Donuts!" onclick="codeAddress()">
+			    <input type="button" value="" onclick="codeAddress()" id="search-button">
 				</form>
 				<div id="map_canvas"></div>
 			</div>

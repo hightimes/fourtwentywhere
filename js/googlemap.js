@@ -1,7 +1,16 @@
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 var geocoder;
   var map;
 	var service;
 	var infowindow;
+	var searchterms = ['donuts','candy','snacks','pizza'];
+	var searchterm = searchterms[Math.floor(Math.random()*searchterms.length)];
+	var searchtext = searchterm;
+	document.getElementById('search-title').innerHTML = searchterm.capitalize() + " search:";
+	document.getElementById('search-button').setAttribute("value","Get " + searchterm.capitalize());
 
 	
   function codeAddress() {
@@ -27,10 +36,12 @@ var geocoder;
       } else {
         alert("No donuts for you: please enter your zip code or city and try again");
       }
+			
+			console.log(searchterm);
 		  var request = {
 		    location: results[0].geometry.location,
 		    radius: '4000',
-		    keyword: ['donuts']
+		    keyword: [searchterm]
 		  };
 			
 			function callback(results, status) {

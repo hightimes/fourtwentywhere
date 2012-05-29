@@ -32,7 +32,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+html, button, input, select, textarea { font-family: sans-serif; color: #bebebe; }
 
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
@@ -231,28 +231,41 @@ td { vertical-align: top; }
 		 margin-right:auto;
 		 text-align: left;
 	 }
+	 header#masthead {
+		 height:150px;
+	 }
 	 h1 {
-		 color:#bebebe;
+
 		 font-weight:normal;
 	 
 	 }
 
-	 header h1 {
-		 margin-top:0;
+	 header#masthead h1 {
+		 margin:-8px 20px 0 0;
+		 padding-bottom:12px;
 		 font-size:62px;
 		 font-family: "Russo One", Verdana;
 		 color: #55ab00;
-		 text-shadow: #24310e 1px 1px, #24310e 2px 2px, #24310e 3px 3px, #24310e 4px 4px, #24310e 5px 5px, #24310e 6px 6px, #24310e 7px 7px, #24310e 8px 8px;	 }
+		 text-shadow: #24310e 1px 1px, #24310e 2px 2px, #24310e 3px 3px, #24310e 4px 4px, #24310e 5px 5px, #24310e 6px 6px, #24310e 7px 7px, #24310e 8px 8px;	 
+		 float:left;
+	 }
+	
+	 header#masthead p {
+		 font-size:23px;
+		 margin-top:42px;
+		 float:left;
+	 }
+	 
+	 #your-time section:first-child h1 {
+		 margin-top:0;
+	 }
 	 #your-time h1 {
 		 font-size:28px;
 		 margin-bottom:8px;
 	 }
-	 #your-time section:first-child h1 {
-		 margin-top:0;
-	 }
 	 
 	 .weed-clock {
-		 background:#000;
+		 background:#222;
 		 color:#2aff00;
 		 font-size:48px;
 		 padding:0px;
@@ -268,7 +281,7 @@ td { vertical-align: top; }
 	 }
 	 #time-to-puff {
 		 background:#bebebe;
-		 color:#000;
+		 color:#222;
 		 -webkit-border-radius: 15px;
 		 -moz-border-radius: 15px;
 		 border-radius: 15px;
@@ -312,6 +325,7 @@ td { vertical-align: top; }
 		 border:1px solid #333;
 		 background:#ccc;
 		 margin-right:6px;
+		 color:#222;
 	 }
 	 input[type="button"] {
 		 background:#2aff00;
@@ -319,7 +333,7 @@ td { vertical-align: top; }
 		 -webkit-border-radius: 3px;
 		 -moz-border-radius: 3px;
 		 border-radius: 3px;
-		 color:#000;
+		 color:#222;
 		 padding:1px 4px;
 	 }
 	 input[type="button"]:hover {
