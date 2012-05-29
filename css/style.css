@@ -223,6 +223,7 @@ td { vertical-align: top; }
 		 text-align:center;
 		 width:100%;
 	 }
+	 section, article {width:100%}
 	 .weed-container {
 		 background: url('../img/background.png') 0 0 no-repeat;
 		 min-height:780px;
@@ -260,24 +261,35 @@ td { vertical-align: top; }
 		 margin-top:0;
 	 }
 	 #your-time h1 {
-		 font-size:28px;
-		 margin-bottom:8px;
+		 font-size:16px;
+		 margin-bottom:0px;
+		 background:#32342b;
+		 width:100%;
+		 text-align:center;
+		 padding:3px 0;
+		 -webkit-border-radius: 8px 8px 0 0;
+		 -moz-border-radius:  8px 8px 0 0;
+		 border-radius: 8px 8px 0 0;
+		 
 	 }
 	 
 	 .weed-clock {
 		 background:#222;
 		 color:#2aff00;
-		 font-size:48px;
-		 padding:0px;
+		 font-size:45px;
 		 width:100%;
 		 display: inline-block;
 		 font-family: "Lucidia Console";
 		 height: 56px;
-		 text-align: center;
-		 padding: 0 8px;
+		 text-align: right;
+		 -webkit-border-radius: 0 0 8px 8px;
+		 -moz-border-radius: 0 0 8px 8px;
+		 border-radius: 0 0 8px 8px;
+		 
 	 }
 	 #current-time, #amd-current-time {
 		 line-height:1.2em;
+		 		 margin: 0 8px;
 	 }
 	 #time-to-puff {
 		 background:#bebebe;

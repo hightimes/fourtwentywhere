@@ -78,7 +78,7 @@ boom.face.done
 		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
-		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20.";
+		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20."; // Im not sure if the arithmetic is right on this.
 		time = formatTime(date);
 		time2 = formatAmsterTime();
 		msg.push(time);
