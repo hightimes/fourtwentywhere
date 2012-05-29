@@ -30,7 +30,7 @@ boom.face.done
 	function timeCheck(){
 		message(new Date());
 		timeout = setTimeout(timeCheck,1000);
-		console.log("timeout = " + timeout);
+		// console.log("timeout = " + timeout);
 	}
 
 	function formatTime(date){
@@ -38,7 +38,8 @@ boom.face.done
        hour = hours[date.getHours()] ? hours[date.getHours()] : date.getHours(),
        minutes = (date.getMinutes().toString().length > 1)  ? date.getMinutes() : ("0" + date.getMinutes()),
 			 seconds = (date.getSeconds() < 10) ? ("0" + date.getSeconds()) : date.getSeconds(),
-       time = [hour,":",minutes,":",seconds].join("");		 	
+       ampm = (date.getHours() >= 0) && (date.getHours() <= 11) ? "am" : "pm";
+			 time = [hour,":",minutes,":",seconds," "+ampm].join("");		 	
 
        return time;
 	}
@@ -54,13 +55,17 @@ boom.face.done
 		minutes = gmtTime.getMinutes(),
 		seconds = gmtTime.getSeconds(),
 		hour = hours[gmtTime.getHours()] ? hours[gmtTime.getHours()] : gmtTime.getHours()
+		ampm = (gmtTime.getHours() >= 0) || (gmtTime.getHours() <= 11) ? "am" : "pm";
+		if (hour == 0){
+			hour = "12"
+		}
 		if(minutes < 10){
 		minutes = "0" + minutes
 		}
 		if(seconds < 10){
 		seconds = "0" + seconds
 		} 
-		time2 = [hour,":",minutes,":",seconds].join("");		
+		time2 = [hour,":",minutes,":",seconds," "+ampm].join("");		
 		return time2;
 	}
 	function message(date){

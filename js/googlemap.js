@@ -1,16 +1,30 @@
+
+
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
+}
+String.prototype.singularize = function() {
+		if ((this.substr(-1) == "s") && !(this.substr(-3) == "ies")){
+			return this.substring(0, this.length-1);
+		}
+		else if ((this.substr(-2) == "es") && !(this.substr(-3) == "ies")){
+			return this.substring(0, this.length-2);
+		}
+		else if ((this.substr(-3) == "ies")){
+			return this.substring(0, this.length-3) + "y";			
+		}
+		else { return this; }
 }
 
 var geocoder;
   var map;
 	var service;
 	var infowindow;
-	var searchterms = ['donuts','candy','snacks','pizza'];
+	var searchterms = ['donuts','candy','snacks','pizza','pastries'];
 	var searchterm = searchterms[Math.floor(Math.random()*searchterms.length)];
 	var searchtext = searchterm;
-	document.getElementById('search-title').innerHTML = searchterm.capitalize() + " search:";
-	document.getElementById('search-button').setAttribute("value","Get " + searchterm.capitalize());
+	document.getElementById('search-title').innerHTML = searchterm.capitalize().singularize() + " Finder:";
+	document.getElementById('search-button').setAttribute("value","Get " + searchterm.capitalize() + "!");
 
 	
   function codeAddress() {

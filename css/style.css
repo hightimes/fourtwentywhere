@@ -241,7 +241,7 @@ td { vertical-align: top; }
 	 }
 
 	 header#masthead h1 {
-		 margin:-8px 20px 0 0;
+		 margin:0 20px 0 0;
 		 padding-bottom:12px;
 		 font-size:62px;
 		 font-family: "Russo One", Verdana;
@@ -252,7 +252,7 @@ td { vertical-align: top; }
 	
 	 header#masthead p {
 		 font-size:23px;
-		 margin-top:42px;
+		 margin-top:45px;
 		 float:left;
 	 }
 	 
@@ -269,7 +269,7 @@ td { vertical-align: top; }
 		 color:#2aff00;
 		 font-size:48px;
 		 padding:0px;
-		 width:185px;
+		 width:100%;
 		 display: inline-block;
 		 font-family: "Lucidia Console";
 		 height: 56px;
