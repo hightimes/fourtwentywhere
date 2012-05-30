@@ -78,7 +78,7 @@ boom.face.done
 
 	function countDown(date){
 		
-		var next420 = date.getMinutes() < 20 ? 20 - date.getMintues() : 80 - date.getMinutes();
+		var next420 = date.getMinutes() < 20 ? 20 - date.getMinutes() : 80 - date.getMinutes();
 
 		return next420;
 	}
