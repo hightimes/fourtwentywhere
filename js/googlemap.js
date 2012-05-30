@@ -20,7 +20,7 @@ var geocoder;
   var map;
 	var service;
 	var infowindow;
-	var searchterms = ['donuts','candy','snacks','pizza','pastries'];
+	var searchterms = ['donuts','candy','snacks','pizza','pastries','tacos'];
 	var searchterm = searchterms[Math.floor(Math.random()*searchterms.length)];
 	var searchtext = searchterm;
 	document.getElementById('search-title').innerHTML = searchterm.capitalize().singularize() + " Finder:";
