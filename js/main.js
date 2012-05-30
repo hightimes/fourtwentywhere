@@ -5,6 +5,8 @@ boom.face.done
     
     //private parts
     var timeout,
+    twenty = 20, //helpful for testing
+    eighty = 80, //helpful for testing
     hours = {
     	"13" : 1,
     	"14" : 2,
@@ -76,11 +78,12 @@ boom.face.done
 		return time2;
 	}
 
-	function countDown(date){
+	function countDownMessage(date){
 		
-		var next420 = date.getMinutes() < 20 ? 20 - date.getMinutes() : 80 - date.getMinutes();
-
-		return next420;
+		var next420 = date.getMinutes() < twenty ? twenty - date.getMinutes() : eighty - date.getMinutes();
+		next420 += (next420 < 2) ? " minute" : " minutes";
+ 
+		return next420 + " til the next 4:20.";
 	}
 
 	function message(){
@@ -90,10 +93,10 @@ boom.face.done
 		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
-		countdown = countDown(date) + " minutes til the next 4:20.", // Im not sure if the arithmetic is right on this.
+		countdown = countDownMessage(date), // Im not sure if the arithmetic is right on this.
 		time = formatTime(date),
 		time2 = formatAmsterTime(date),
-		message = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
+		message = date.getMinutes() == twenty ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
 
 		msg.push(time);
 		msg.push(time2);
