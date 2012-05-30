@@ -27,12 +27,13 @@ boom.face.done
     
 
 	function timeCheck(){
-		var 
-		date = new Date(),
-        //pass in the Date object and make message
-		msg = message(date);
+		
+        //make message
+		var msg = message();
+		
 		//render to DOM
 		render(msg);
+
         timeout = setTimeout(timeCheck,1000);
 		//console.log("timeout = " + timeout);
 	}
@@ -41,15 +42,16 @@ boom.face.done
        var 
        hour = hours[date.getHours()] ? hours[date.getHours()] : date.getHours(),
        minutes = (date.getMinutes().toString().length > 1)  ? date.getMinutes() : ("0" + date.getMinutes()),
-			 seconds = (date.getSeconds() < 10) ? ("0" + date.getSeconds()) : date.getSeconds(),
-       ampm = (date.getHours() >= 0) && (date.getHours() <= 11) ? "am" : "pm";
-			 time = [hour,":",minutes,":",seconds," "+ampm].join("");		 	
+	   seconds = (date.getSeconds() < 10) ? ("0" + date.getSeconds()) : date.getSeconds(),
+       ampm = (date.getHours() >= 0) && (date.getHours() <= 11) ? "am" : "pm",
+	   time = [hour,":",minutes,":",seconds," "+ampm].join("");		 	
 
        return time;
 	}
 
 	function formatAmsterTime(date){
 		var time = date,
+		time2,
 		// ===========================================================================
 		// = GMT +1 currently -- the + 3600000 ms at the end is for daylight savings =
 		// ===========================================================================
@@ -58,28 +60,37 @@ boom.face.done
 		hour = gmtTime.getHours(),
 		minutes = gmtTime.getMinutes(),
 		seconds = gmtTime.getSeconds(),
-		hour = hours[gmtTime.getHours()] ? hours[gmtTime.getHours()] : gmtTime.getHours()
+		hour = hours[gmtTime.getHours()] ? hours[gmtTime.getHours()] : gmtTime.getHours(),
 		ampm = (gmtTime.getHours() >= 0) || (gmtTime.getHours() <= 11) ? "am" : "pm";
 		if (hour == 0){
-			hour = "12"
+		    hour = "12"
 		}
 		if(minutes < 10){
-		minutes = "0" + minutes
+		    minutes = "0" + minutes
 		}
 		if(seconds < 10){
-		seconds = "0" + seconds
+		    seconds = "0" + seconds
 		} 
 		time2 = [hour,":",minutes,":",seconds," "+ampm].join("");		
+		
 		return time2;
 	}
 
-	function message(date){
+	function countDown(date){
+		
+		var next420 = date.getMinutes() < 20 ? 20 - date.getMintues() : 80 - date.getMinutes();
+
+		return next420;
+	}
+
+	function message(){
 		var
+		date = new Date(),
 		msg = [],
 		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
-		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20.", // Im not sure if the arithmetic is right on this.
+		countdown = countDown(date) + " minutes til the next 4:20.", // Im not sure if the arithmetic is right on this.
 		time = formatTime(date),
 		time2 = formatAmsterTime(date),
 		message = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
