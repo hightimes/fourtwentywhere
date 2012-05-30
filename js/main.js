@@ -1,5 +1,5 @@
 /* Author:
-
+boom.face.done
 */
 
 
@@ -29,36 +29,62 @@
 
 	function timeCheck(){
 		message(new Date());
-		timeout = setTimeout(timeCheck,60000);
-		console.log("timeout = " + timeout);
+		timeout = setTimeout(timeCheck,1000);
+		// console.log("timeout = " + timeout);
 	}
 
 	function formatTime(date){
        var 
        hour = hours[date.getHours()] ? hours[date.getHours()] : date.getHours(),
        minutes = (date.getMinutes().toString().length > 1)  ? date.getMinutes() : ("0" + date.getMinutes()),
-       time = [hour,":",minutes].join("");		 	
+			 seconds = (date.getSeconds() < 10) ? ("0" + date.getSeconds()) : date.getSeconds(),
+       ampm = (date.getHours() >= 0) && (date.getHours() <= 11) ? "am" : "pm";
+			 time = [hour,":",minutes,":",seconds," "+ampm].join("");		 	
+
        return time;
 	}
-	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	var geocoder = new google.maps.Geocoder()
-	geocoder.geocode({location:latlng},function(result){
-	                    console.log(resul.address_components.long_name)
-	});
-	 
+
+	function formatAmsterTime(){
+		var time = new Date(),
+		// ===========================================================================
+		// = GMT +1 currently -- the + 3600000 ms at the end is for daylight savings =
+		// ===========================================================================
+		gmt = time.getTime() + (time.getTimezoneOffset() * 60000) + 3600000,
+		gmtTime = new Date(gmt),
+		hour = gmtTime.getHours(),
+		minutes = gmtTime.getMinutes(),
+		seconds = gmtTime.getSeconds(),
+		hour = hours[gmtTime.getHours()] ? hours[gmtTime.getHours()] : gmtTime.getHours()
+		ampm = (gmtTime.getHours() >= 0) || (gmtTime.getHours() <= 11) ? "am" : "pm";
+		if (hour == 0){
+			hour = "12"
+		}
+		if(minutes < 10){
+		minutes = "0" + minutes
+		}
+		if(seconds < 10){
+		seconds = "0" + seconds
+		} 
+		time2 = [hour,":",minutes,":",seconds," "+ampm].join("");		
+		return time2;
+	}
 	function message(date){
 		
 		var
 		puffid = document.getElementById('time-to-puff'),
 		currtimeid = document.getElementById('current-time'),
+		amdtimeid = document.getElementById('amd-current-time'),
 		msg = [],
-		sorry =  "Sorry, not time to puff",
+		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
+		msg2 = "BOOM 4:20! Light that bitch up!",
+		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20."; // Im not sure if the arithmetic is right on this.
 		time = formatTime(date);
+		time2 = formatAmsterTime();
 		msg.push(time);
-		msg = (date.getMinutes() == 20) ? msg1 : sorry;
-		// print(msg);
+		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
 		currtimeid.innerHTML = time;
+		amdtimeid.innerHTML = time2;
 		puffid.innerHTML = msg;
 	}
 
