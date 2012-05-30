@@ -1,14 +1,6 @@
 /* Author:
 boom.face.done
 */
-
-
-
-
-
-
-
-
 (function(window,document){
     
     //private parts
@@ -25,12 +17,24 @@ boom.face.done
     	"21" : 9,
     	"22" : 10,
     	"23" : 11,
-    };
+    },
+
+    //doc elements
+    //moved it out of the message function
+    puffid = document.getElementById('time-to-puff'),
+	currtimeid = document.getElementById('current-time'),
+	amdtimeid = document.getElementById('amd-current-time');
+    
 
 	function timeCheck(){
-		message(new Date());
-		timeout = setTimeout(timeCheck,1000);
-		// console.log("timeout = " + timeout);
+		var 
+		date = new Date(),
+        //pass in the Date object and make message
+		msg = message(date);
+		//render to DOM
+		render(msg);
+        timeout = setTimeout(timeCheck,1000);
+		//console.log("timeout = " + timeout);
 	}
 
 	function formatTime(date){
@@ -44,8 +48,8 @@ boom.face.done
        return time;
 	}
 
-	function formatAmsterTime(){
-		var time = new Date(),
+	function formatAmsterTime(date){
+		var time = date,
 		// ===========================================================================
 		// = GMT +1 currently -- the + 3600000 ms at the end is for daylight savings =
 		// ===========================================================================
@@ -68,24 +72,23 @@ boom.face.done
 		time2 = [hour,":",minutes,":",seconds," "+ampm].join("");		
 		return time2;
 	}
+
 	function message(date){
-		
 		var
-		puffid = document.getElementById('time-to-puff'),
-		currtimeid = document.getElementById('current-time'),
-		amdtimeid = document.getElementById('amd-current-time'),
 		msg = [],
 		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
-		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20."; // Im not sure if the arithmetic is right on this.
-		time = formatTime(date);
-		time2 = formatAmsterTime();
+		countdown = 80 - (date.getMinutes()) + " minutes til the next 4:20.", // Im not sure if the arithmetic is right on this.
+		time = formatTime(date),
+		time2 = formatAmsterTime(date),
+		message = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
+
 		msg.push(time);
-		msg = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
-		currtimeid.innerHTML = time;
-		amdtimeid.innerHTML = time2;
-		puffid.innerHTML = msg;
+		msg.push(time2);
+		msg.push(message);
+
+		return msg
 	}
 
 	function print(msg){
@@ -93,7 +96,9 @@ boom.face.done
 	}
 
 	function render(msg){
-	    console.log(msg);
+		currtimeid.innerHTML = msg[0];
+		amdtimeid.innerHTML = msg[1];
+		puffid.innerHTML = msg[2];
 	}
 
 	function stop(){
@@ -103,7 +108,12 @@ boom.face.done
 
 	//Class constructor
     function FourTwenty(){
-
+      
+      //assing DOM els in the constructor
+      //for easy access
+      this.puffid = puffid;
+      this.currtimeid = currtimeid;
+      this.amdtimeid = amdtimeid;
     }
 
     //pubic API
