@@ -19,6 +19,7 @@ boom.face.done
     	"21" : 9,
     	"22" : 10,
     	"23" : 11,
+    	"0"  : 12
     },
 
     //doc elements
@@ -29,8 +30,7 @@ boom.face.done
     
 
 	function timeCheck(){
-		
-        //make message
+		//make message
 		var msg = message();
 		
 		//render to DOM
@@ -101,7 +101,7 @@ boom.face.done
 		msg.push(time);
 		msg.push(time2);
 		msg.push(message);
-
+        
 		return msg
 	}
 
