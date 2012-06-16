@@ -180,7 +180,15 @@ button[disabled], input[disabled] { cursor: default; }
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
 input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+::-webkit-input-placeholder {
+   color: #555;
+   font-style:italic;
+}
 
+:-moz-placeholder {  
+   color: #555;
+   font-style:italic;  
+}
 /*
  * Remove inner padding and border in FF3/4: h5bp.com/l
  */
@@ -221,7 +229,7 @@ td { vertical-align: top; }
    ========================================================================== */
 @text-lightgrey: #bebebe;
 @text-brightgreen: #2AFF00;
-
+@header-green: #4ac632;
 
 
 /* ==|== primary styles =====================================================
@@ -248,7 +256,7 @@ td { vertical-align: top; }
 			 margin:0 20px 0 0;
 			 padding-bottom:12px;
 			 .header-font(62px);
-			 color: #4ac632;
+			 color: @header-green;
 			 /*special reapeating text shadow*/
 			 text-shadow: #24310e 1px 1px, #24310e 2px 2px, #24310e 3px 3px, #24310e 4px 4px, #24310e 5px 5px, #24310e 6px 6px, #24310e 7px 7px, #24310e 8px 8px;	 
 			 float:left;
@@ -320,6 +328,7 @@ td { vertical-align: top; }
 		 margin-top:12px;
 	 }
 	 #munchie-finder {
+	 	margin-top:20px;
 		 legend {
 			color:@text-lightgrey;
 			display:block;
@@ -327,28 +336,36 @@ td { vertical-align: top; }
 			font-weight:bold;
 			font-size:20px;
 		 }
-
 		 label {
 			color:@text-lightgrey;
 			display:inline;
-			margin-bottom:6px;
+			margin-bottom:0;
+			padding-bottom:0;
 		 }
 		 input[type="textbox"] {
+		 	padding:2px 4px;
 			 border:1px solid #333;
 			 background:#ccc;
-			 margin-right:6px;
 			 color:#222;
+			 width:97%;
 		 }
 		 input[type="button"] {
 			 background:@text-brightgreen;
 			 border:none;
 			 .border-radius(3px);
-			 color:#222;
-			 padding:1px 4px;
+			 color:@header-green;
+			 padding:0px 8px 4px 4px;
+			 margin:8px 0 0 0;
+			 float:right;
+			 font-weight:normal;
+			 .header-font(16px);
+			 text-shadow: #24310e 1px 1px, #24310e 2px 2px, #24310e 3px 3px, #24310e 4px 4px;	 
+			 .gradient (#1b8c04, #2e4f27);
+			 border:1px solid #ccc;
 		 }
 		 input[type="button"]:hover {
 			 color:@text-brightgreen;
-			 background:#222;
+			 .gradient (#116201, #104107);
 		 }
 	 }
 
