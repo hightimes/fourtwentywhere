@@ -20,7 +20,7 @@ var geocoder;
   var map;
 	var service;
 	var infowindow;
-	var searchterms = ['donuts','candy','snacks','pizza','pastries','tacos'];
+	var searchterms = ['donuts','candy','snacks','pizza','pastries','oihoibnewoaibt'];
 	var searchterm = searchterms[Math.floor(Math.random()*searchterms.length)];
 	var searchtext = searchterm;
 	document.getElementById('search-title').innerHTML = searchterm.capitalize().singularize() + " Finder:";
@@ -42,13 +42,10 @@ var geocoder;
     geocoder.geocode( { 'address': address}, function(results, status) {
 		 
       if (status == google.maps.GeocoderStatus.OK) {
+
+      	
         map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map, 
-            position: results[0].geometry.location
-        });
-      } else {
-        alert("No donuts for you: please enter your zip code or city and try again");
+        
       }
 			
 			console.log(searchterm);
@@ -65,6 +62,9 @@ var geocoder;
 			      createMarker(results[i]);
 			    }
 			  }
+			   else {
+        			alert("No " + searchterm + " for you: please enter your zip code or city and try again");
+     			}
 			}
 			infowindow = new google.maps.InfoWindow();
 			service = new google.maps.places.PlacesService(map);
@@ -74,9 +74,11 @@ var geocoder;
 	  
 		function createMarker(place) {
 		    var placeLoc = place.geometry.location;
+		    var potleaf = "../img/leaf-marker.png";
 		    var marker = new google.maps.Marker({
 		      map: map,
-		      position: place.geometry.location
+		      position: place.geometry.location,
+		      icon: potleaf
 		    });
 				google.maps.event.addListener(marker, 'click', function() {
 				          infowindow.setContent(place.name);

@@ -21,13 +21,29 @@ boom.face.done
     	"23" : 11,
     	"0"  : 12
     },
+    // timezone data for 12 cities
+    data = [
+		[-10.0,"Honolulu","HST UTC-10",true],
+		[-7.0,"San Francisco","PDT UTC-7",true],
+		[-6.0,"Denver","MDT UTC-6",true],
+		[-5.0,"Chicago","CDT UTC-5",true],
+		[-4.0,"New York","EDT UTC-4",true],
+		[-3.0,"Rio de Janeiro","BRT UTC-3",true],
+		[1.0,"London","BST UTC+1",true],
+		[2.0,"Vienna","CEST UTC+2",true],
+		[5.5,"Mumbai","IST UTC+5.5",true],
+		[8.0,"Singapore","SGT UTC+8",true],
+		[9.0,"Tokyo","JST UTC+9",true],
+		[10.0,"Sydney","EST UTC+10",true],
+		[12.0,"Auckland","NZST UTC+12",true]
+	],
 
     //doc elements
     //moved it out of the message function
     puffid = document.getElementById('time-to-puff'),
 	currtimeid = document.getElementById('current-time'),
 	amdtimeid = document.getElementById('amd-current-time');
-    
+
 
 	function timeCheck(){
 		//make message
@@ -93,10 +109,10 @@ boom.face.done
 		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
-		countdown = countDownMessage(date), // Im not sure if the arithmetic is right on this.
+		countdown = countDownMessage(date),
 		time = formatTime(date),
 		time2 = formatAmsterTime(date),
-		message = date.getMinutes() == twenty ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
+		message = date.getMinutes() == 20 ? (date.getHours() == 4 ? msg2 : msg1) : sorry + countdown;
 
 		msg.push(time);
 		msg.push(time2);
