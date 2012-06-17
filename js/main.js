@@ -109,6 +109,7 @@ boom.face.done
 		sorry =  "Sorry dude. ",
 		msg1 =  "It's 4:20 in face",
 		msg2 = "BOOM 4:20! Light that bitch up!",
+		hilite = puffid.setAttribute('class','awesome');
 		countdown = countDownMessage(date),
 		time = formatTime(date),
 		time2 = formatAmsterTime(date),
@@ -120,6 +121,14 @@ boom.face.done
         
 		return msg
 	}
+	function hilite(){
+		date = new Date();
+		if (date.getMinutes() == 21 && date.getHours() == 7){
+			alert('kaw');
+			puffid.setAttribute('class','awesome');
+		}
+
+	}
 
 	function print(msg){
 	    console.log(msg);
@@ -129,6 +138,7 @@ boom.face.done
 		currtimeid.innerHTML = msg[0];
 		amdtimeid.innerHTML = msg[1];
 		puffid.innerHTML = msg[2];
+		
 	}
 
 	function stop(){

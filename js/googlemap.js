@@ -15,7 +15,6 @@ String.prototype.singularize = function() {
 		}
 		else { return this; }
 }
-
 var geocoder;
   var map;
 	var service;
@@ -26,65 +25,58 @@ var geocoder;
 	document.getElementById('search-title').innerHTML = searchterm.capitalize().singularize() + " Finder:";
 	document.getElementById('search-button').setAttribute("value","Get " + searchterm.capitalize() + "!");
 
-	
   function codeAddress() {
+    // set up the map with the center at search result zip code
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(-34.397, 150.644);
     var myOptions = {
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-		
+    }		
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-		
-		
+
+    // set up the key word and search for it within a 1-mile radius
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
-		 
       if (status == google.maps.GeocoderStatus.OK) {
-
-      	
-        map.setCenter(results[0].geometry.location);
-        
+        map.setCenter(results[0].geometry.location);       
       }
-			
-			console.log(searchterm);
-		  var request = {
+		var request = {
 		    location: results[0].geometry.location,
-		    radius: '4000',
+		    radius: '6000',
 		    keyword: [searchterm]
-		  };
-			
-			function callback(results, status) {
-			  if (status == google.maps.places.PlacesServiceStatus.OK) {
-			    for (var i = 0; i < results.length; i++) {
-			      var place = results[i];
-			      createMarker(results[i]);
-			    }
-			  }
-			   else {
-        			alert("No " + searchterm + " for you: please enter your zip code or city and try again");
-     			}
-			}
-			infowindow = new google.maps.InfoWindow();
-			service = new google.maps.places.PlacesService(map);
-			service.search(request, callback);
-			
+		};
+		
+		function callback(results, status) {
+		  if (status == google.maps.places.PlacesServiceStatus.OK) {
+		    for (var i = 0; i < results.length; i++) {
+		      var place = results[i];
+		      createMarker(results[i]);
+		    }
+		  }
+		  else {
+    		alert("No " + searchterm + " for you: please enter your zip code or city and try again");
+ 			}
+		}
+		infowindow = new google.maps.InfoWindow();
+		service = new google.maps.places.PlacesService(map);
+		service.search(request, callback);		
     });
-	  
-		function createMarker(place) {
-		    var placeLoc = place.geometry.location;
-		    var potleaf = "../img/leaf-marker.png";
-		    var marker = new google.maps.Marker({
-		      map: map,
-		      position: place.geometry.location,
-		      icon: potleaf
-		    });
-				google.maps.event.addListener(marker, 'click', function() {
-				          infowindow.setContent(place.name);
-				          infowindow.open(map, this);
-				        });
-				
-			}
+	
+	// place pot leaf markers on the resulting businesses
+	function createMarker(place) {
+	    var placeLoc = place.geometry.location;
+	    var potleaf = "../img/leaf-marker.png";
+	    var marker = new google.maps.Marker({
+	      map: map,
+	      position: place.geometry.location,
+	      icon: potleaf
+	    });
+		google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+		  infowindow.open(map, this);
+		});
+			
+	}
 			
   }

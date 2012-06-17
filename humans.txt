@@ -3,41 +3,30 @@
 
 
 /* TEAM */
-  <your title>: <your name>
+  CMO: Pete Thompson
+  Site: http://pete-thompson.com
+  Twitter: @pthomusic
+  Location: New York, NY
+
+  CWO: David J Cho
+  Site: 
+  Twitter:
+  Location: New York, NY
+  
+  Mister Munson: Russell Munson
   Site:
   Twitter:
-  Location:
+  Location: New York, NY
+
+
+
 
 /* THANKS */
   Names (& URL):
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
+  Components: Modernizr
   Software:
-
-
-
-                               -o/-
-                               +oo//-
-                              :ooo+//:
-                             -ooooo///-
-                             /oooooo//:
-                            :ooooooo+//-
-                           -+oooooooo///-
-           -://////////////+oooooooooo++////////////::
-            :+ooooooooooooooooooooooooooooooooooooo+:::-
-              -/+ooooooooooooooooooooooooooooooo+/::////:-
-                -:+oooooooooooooooooooooooooooo/::///////:-
-                  --/+ooooooooooooooooooooo+::://////:-
-                     -:+ooooooooooooooooo+:://////:--
-                       /ooooooooooooooooo+//////:-
-                      -ooooooooooooooooooo////-
-                      /ooooooooo+oooooooooo//:
-                     :ooooooo+/::/+oooooooo+//-
-                    -oooooo/::///////+oooooo///-
-                    /ooo+::://////:---:/+oooo//:
-                   -o+/::///////:-      -:/+o+//-
-                   :-:///////:-            -:/://
-                     -////:-                 --//:
-                       --                       -:
+  html5 Boilerplate
+  Custom 420 webapp
