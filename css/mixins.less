@@ -1,9 +1,11 @@
+
 /* =============================================================================
    mixins
    ========================================================================== */
 .text-shadow-white (@string: 0 1px 3px #fff) {
 	text-shadow: @string;
 }
+
 .box-shadow (@string) {
 	-webkit-box-shadow: @string;
 	-moz-box-shadow:    @string;
@@ -35,4 +37,12 @@
 .header-font(@size) {
 	font-family: "Russo One", Verdana;
 	font-size:@size;
+}
+
+.vendor-property (@rule, @prop){
+	@rule : -webkit-@prop;
+	@rule : -moz-@prop;
+	@rule : -ms-@prop;
+	@rule : -ms-@prop;
+	@rule : @prop;
 }
