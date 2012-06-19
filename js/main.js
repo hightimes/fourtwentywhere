@@ -126,6 +126,7 @@ boom.face.done
 	}
 
 	function render(msg){
+		$(window).trigger("time:update",msg);
 		currtimeid.innerHTML = msg[0];
 		amdtimeid.innerHTML = msg[1];
 		puffid.innerHTML = msg[2];
@@ -160,3 +161,26 @@ boom.face.done
 
 var x = new fourtwenty();
 x.bake();
+
+
+(function (win,doc){
+	var handMap = {
+		'second' : 2,
+		'minute' : 1,
+		'hour'   : 0
+	},
+	clocks = $('.analog .face'),
+	hands= { 
+		second 	: $('.second',clocks),
+		minute 	: $('.minute',clocks),
+		hour 	: $('.hour',clocks)
+	};
+
+	$(window).on('time:update',function(e,t1,t2,t3){
+		var local=t1.replace(' ',':').split(':');
+		hands.second.attr('data-time',local[handMap.second]).css('-webkit-transform','rotate('+(360/60*local[handMap.second]||360)+'deg)');
+		hands.minute.attr('data-time',local[handMap.minute]).css('-webkit-transform','rotate('+360/60*local[handMap.minute]+'deg)');
+		hands.hour.attr('data-time',local[handMap.hour]).css('-webkit-transform','rotate('+360/12*local[handMap.hour]+'deg)');;
+	});
+
+})(window,document)
