@@ -178,9 +178,9 @@ x.bake();
 
 	$(window).on('time:update',function(e,t1,t2,t3){
 		var local=t1.replace(' ',':').split(':');
-		hands.second.attr('data-time',local[handMap.second]).css('-webkit-transform','rotate('+(360/60*local[handMap.second]||360)+'deg)');
-		hands.minute.attr('data-time',local[handMap.minute]).css('-webkit-transform','rotate('+360/60*local[handMap.minute]+'deg)');
-		hands.hour.attr('data-time',local[handMap.hour]).css('-webkit-transform','rotate('+360/12*local[handMap.hour]+'deg)');;
+		hands.second.attr('data-time',local[handMap.second]).css('-webkit-transform','rotate('+(360/60*local[handMap.second]-90)+'deg)');
+		hands.minute.attr('data-time',local[handMap.minute]).css('-webkit-transform','rotate('+(360/60*local[handMap.minute]-90)+'deg)');
+		hands.hour.attr('data-time',local[handMap.hour]).css('-webkit-transform','rotate('+(360/12*local[handMap.hour]-90)+'deg)');;
 	});
 
 })(window,document)
