@@ -178,19 +178,21 @@ x.bake();
 
 	$(window).on('time:update',function(e,t1,t2,t3){
 		var local=t1.replace(' ',':').split(':');
-		if(local[2]==="00"){
-			hands.second.attr('data-time',local[handMap.second]).css({
-				'-webkit-transition-duration' : '0ms'
-			});			
-		} else {
-			hands.second.attr('data-time',local[handMap.second]).css({
-				'-webkit-transition-duration' : '1s'
-			});	
 
+		if(local[2]==="00"){
+			hands.second.css({
+				'-webkit-transition-duration' : '0',
+				'-webkit-transform':'rotate(-96deg)'
+			});
+			setTimeout(function(){
+				hands.second.css('-webkit-transition-duration' ,'');	
+			},0)		
 		}
-		hands.second.attr('data-time',local[handMap.second]).css('-webkit-transform','rotate('+(360/60*local[handMap.second]-90)+'deg)');			
-		hands.minute.attr('data-time',local[handMap.minute]).css('-webkit-transform','rotate('+(360/60*local[handMap.minute]-90)+'deg)');
-		hands.hour.attr('data-time',local[handMap.hour]).css('-webkit-transform','rotate('+(360/12*local[handMap.hour]-90)+'deg)');;
+		setTimeout(function(){
+			hands.second.attr('data-time',local[handMap.second]).css('-webkit-transform','rotate('+(360/60*local[handMap.second]-90)+'deg)');			
+			hands.minute.attr('data-time',local[handMap.minute]).css('-webkit-transform','rotate('+(360/60*local[handMap.minute]-90)+'deg)');
+			hands.hour.attr('data-time',local[handMap.hour]).css('-webkit-transform','rotate('+(360/12*local[handMap.hour]-90)+'deg)');;
+		},0);
 	});
 
 })(window,document)

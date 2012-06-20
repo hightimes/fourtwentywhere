@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>420where | The 420 World Clock Service</title>
+  <title>Analog clock demo</title>
   <meta name="description" content="A world clock service which lets you know where in the world it is currently 4:20">
   <meta name="viewport" content="width=device-width">
 	<link rel="icon" type="image/png"  href="favicon.png" />
@@ -18,10 +18,9 @@
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]--> 
- <div class="weed-container">
+ <div class="weed-container" style="background-image:none">
 	<header id="masthead">
- 		<h1>4:20 World Clock</h1>
-		<p>It's 4:20 somewhere...</p>
+ 		<h1>Analog demo</h1>
  	</header>
 	<article class="row">
 		<div class="three columns" id="your-time">
@@ -37,7 +36,8 @@
 					<div id="amd-current-time"></div>
 				</div>
 			</section>
-			<div id="munchie-finder">
+			
+			<div id="munchie-finder" style="display:none">
 				<form>
 					<legend id="search-title"></legend>
 					
@@ -46,11 +46,14 @@
 			    <input type="button" value="" onclick="codeAddress()" id="search-button">
 				</form>
 			</div>
+			
 		</div>
 		
 		
 		<section class="nine columns" id="awesome">
-			<div id="time-to-puff"></div>
+		
+			<div id="time-to-puff" style="display:none"></div>
+		
 		
 			
 				<div class="weed-clock analog">
@@ -61,7 +64,7 @@
 					</div>
 				</div>
 				<div class="weed-clock analog">
-					<div class="face numbers ticks">
+					<div class="face numbers ticks numbers">
 						<div class="hand second"></div>
 						<div class="hand minute"></div>
 						<div class="hand hour"></div>

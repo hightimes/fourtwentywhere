@@ -11,49 +11,50 @@
 		border-radius:50%;
 		margin:10px;
 		//-webkit-transform:rotate(-90deg);
-	}
-	.hand {
-		z-index:1;
-		position:absolute;
-		display:inline-block;
-		border-radius:50%;
-		box-sizing:border-box;
-		height:100%;
-
-		-webkit-transform-origin:50% 50%;
-		-webkit-transition-property: -webkit-transform;
-		-webkit-transition-timing-function:linear;
-		-webkit-transition-duration:1s;
-		&:after {
-			top:49%;
-			left:50%;
+		.hand {
+			z-index:1;
 			position:absolute;
-			content: ' ';
-			height:2%;
-			width:60%;
-			background-color:rgba(255,255,255,0.8);
-			outline:1px solid #333;
-			box-shadow: 0 0em 0.5em #333;
-		}			
-			&.hour {
-				top:22.5%;
-				left:22.5%;
-				width:55%;
-				height:55%;
-			}
-			&.minute {
-				top:10%;
-				left:10%;
-				width:80%;
-				height:80%;
-			}
-			&.second {
-				top:5%;
-				left:5%;
-				width:90%;
-				height:90%;
-			}
+			display:inline-block;
+			border-radius:50%;
+			box-sizing:border-box;
+			height:100%;
 
+			-webkit-transform-origin:50% 50%;
+			-webkit-transition-property: -webkit-transform;
+			-webkit-transition-timing-function:linear;
+			-webkit-transition-duration:1s;
+			-webkit-transform:rotate(-90deg);
+			&:after {
+				top:49%;
+				left:50%;
+				position:absolute;
+				content: ' ';
+				height:2%;
+				width:60%;
+				background-color:rgba(255,255,255,0.8);
+				outline:1px solid #333;
+				box-shadow: 0 0em 0.5em #333;
+			}			
+				&.hour {
+					top:22.5%;
+					left:22.5%;
+					width:55%;
+					height:55%;
+				}
+				&.minute {
+					top:10%;
+					left:10%;
+					width:80%;
+					height:80%;
+				}
+				&.second {
+					top:5%;
+					left:5%;
+					width:90%;
+					height:90%;
+				}
+
+		}
 	}
 	.face.sphere {
 		border-radius:50%;
@@ -108,7 +109,7 @@
 
 	}
 	*/
-	.face.ticks:after {
+	.face.numbers:after {
 		content : '1 2 3 4 5 6 7 8 9 10 11 12';
 		z-index:0;
 		box-sizing:border-box;
@@ -123,7 +124,14 @@
 		*/
 		border-radius:50%;
 	}
-	.ticks .hand{
-		-webkit-transition-timing-function:cubic-bezier(0,1,0,1.1);
+	.face.ticks {
+		 .hand{
+			-webkit-transition-timing-function:cubic-bezier(0,1,0,1.1);
+		}
+	}
+	.face.leafy {
+		.hand {
+			background: transparent url('../img/background.png') 50% 50% no-repeat;
+		}
 	}
 }
