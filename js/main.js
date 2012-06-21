@@ -169,15 +169,19 @@ x.bake();
 		'minute' : 1,
 		'hour'   : 0
 	},
-	clocks = $('.analog .face'),
+	clocks = {
+		analog 	: $('.analog .face'),
+		digital : $('.digital .face')
+	},
 	hands= { 
-		second 	: $('.second',clocks),
-		minute 	: $('.minute',clocks),
-		hour 	: $('.hour',clocks)
+		second 	: $('.second',clocks.analog),
+		minute 	: $('.minute',clocks.analog),
+		hour 	: $('.hour',clocks.analog)
 	};
 
 	$(window).on('time:update',function(e,t1,t2,t3){
 		var local=t1.replace(' ',':').split(':');
+		clocks.digital.attr('data-time',t1);
 
 		if(local[2]==="00"){
 			hands.second.css({

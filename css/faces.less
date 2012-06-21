@@ -1,12 +1,25 @@
+.digital {
+	&:after {
+		content: attr(data-time);
+	}
+	.hand{
+		
+	}
+}
 .analog {
-	font-size:10px;
+	font-size:50%;
+	width:40em;
+	height:40em;
 	margin:0;
+	&.inline {
+		display: inline-block;
+	}
 	.face {
 		position:relative;
-		height:40em;
-		width:40em;
+		height:100%;
+		width:100%;
 		vertical-align:middle;
-		border:0.1em solid;
+		border:0.5em solid;
 		box-sizing:border-box;
 		border-radius:50%;
 		margin:10px;
@@ -30,7 +43,7 @@
 				position:absolute;
 				content: ' ';
 				height:2%;
-				width:60%;
+				width:50%;
 				background-color:rgba(255,255,255,0.8);
 				outline:1px solid #333;
 				box-shadow: 0 0em 0.5em #333;
@@ -48,25 +61,23 @@
 					height:80%;
 				}
 				&.second {
-					top:5%;
-					left:5%;
-					width:90%;
-					height:90%;
+					top:2.5%;
+					left:2.5%;
+					width:95%;
+					height:95%;
 				}
 
 		}
 	}
-	.face.sphere {
+	.face.arc,.face.sphere, .face.apc, .face.digilog{
 		border-radius:50%;
 		box-sizing:border-box;
-
+		border-width:0;
 		.hand {
 			-webkit-transform-origin:50% 50%;
 			border:0 solid rgba(20,20,20,1);
 			border-right-width: 1em;
-			border-left-width: 0.2em;
 			border-left-color: rgba(200,200,200,0.3);
-			background-color:rgba(50,50,50,0.6);
 			-webkit-transition-timing-function:linear;
 			&:after {
 				content:none;
@@ -78,8 +89,8 @@
 				text-align:left;
 				vertical-align:baseline;
 				top:49%;
-				left:100%;
-				margin:-0.5em 15%;
+				left:105%;
+				margin:-0.5em 0;
 				overflow:visible;
 				position:absolute;
 				content: attr(data-time);
@@ -91,24 +102,100 @@
 		}
 
 	}
-	/*
-	.face.numbers:before {
-		font-size:1.4em;
-		font-weight:normal;
-		position:absolute;
-		display:inline-block;
-		content:'12 11 1 10 2 9 3 8 4 7 5 6';
-		text-align:justify;
-		word-spacing:10em;
-		white-space:no-wrap;
-		overflow:visible;
-		height:auto;
-		width:auto;
-		border:1px solid green;
-		//-webkit-transform:
-
+	.face.apc {
+		background-color:#000;
+		.hand {
+			border-right-width:4em;
+			border-color: rgba(253, 90, 75, 0.4);
+		}
 	}
-	*/
+	.face.sphere {
+		.hand {
+			border-left-width: 0.2em;
+			background-color:rgba(50,50,50,0.6);
+		}
+	}
+	.face.digilog {
+		font-size:4em;
+		line-height:4em;
+		height:80%;
+		width:80%;
+		border:1em solid green;
+		box-sizing:content-box;
+		.hand {
+		//-webkit-transform: none !important;
+
+			-webkit-transform-origin:50% 50%;
+
+			&:after {
+				background:none;
+			}
+
+			&.hour,&.minute,&.second{
+				border:.5em dotted green;
+				box-sizing:border-box;
+				//display:inline-block;
+				width:40%;
+				height:40%;
+				top:30%;
+				left:30%;
+				&:before {
+					text-align:center;
+					vertical-align:middle;
+					margin:0;
+					top:0%;
+					right:0;
+					width:auto;
+					overflow:visible;
+					position:relative;
+					content: attr(data-time);
+				}
+			}
+
+			&.hour:before{
+				left:20%;
+				top:-0.25em;
+				content: attr(data-time);
+			}
+			&.hour {
+				border:none;
+				-webkit-transform: none !important;
+			}
+			&.minute {
+				//margin-left:1em;
+			}
+			&.second {
+				top:10%;
+				left:10%;
+				width:80%;
+				height:80%;
+
+				//margin-left:6em;
+			}
+		}
+		
+	}
+
+	.face.numbers {
+		&:before {
+			font-size:1.4em;
+			font-weight:normal;
+			position:absolute;
+			display:inline-block;
+			//content: url(http://upload.wikimedia.org/wikipedia/commons/9/93/BenboisClock.svg);
+			text-align:justify;
+			word-spacing:10em;
+			white-space:no-wrap;
+			overflow:visible;
+			height:100%;
+			width:100%;
+			border:1px solid green;
+			//-webkit-transform:
+
+		}
+	}
+
+/*
 	.face.numbers:after {
 		content : '1 2 3 4 5 6 7 8 9 10 11 12';
 		z-index:0;
@@ -117,13 +204,9 @@
 		display:block;
 		width:100%;
 		height:100%;
-		/*
-		background-image : -webkit-linear-gradient(0deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%), -webkit-linear-gradient(90deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%),
-		-webkit-linear-gradient(45deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%),-webkit-linear-gradient(22.5deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%), -webkit-linear-gradient(67.5deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%),
-		-webkit-linear-gradient(112.5deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%),-webkit-linear-gradient(135deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%),-webkit-linear-gradient(157.5deg, transparent 0%,transparent 49.5%,#000000 50%,transparent 50.5%,transparent 100%);
-		*/
 		border-radius:50%;
 	}
+*/
 	.face.ticks {
 		 .hand{
 			-webkit-transition-timing-function:cubic-bezier(0,1,0,1.1);
